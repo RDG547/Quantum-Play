@@ -45,13 +45,15 @@ const ReferralSection = () => {
                 <span className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">Sem limite</span>
               </div>
 
-              <button className="btn-secondary w-full md:w-auto" onClick={openWhatsApp}>
+              <button className="btn-secondary w-full md:w-auto mb-6" onClick={openWhatsApp}>
                 Saiba Mais
               </button>
               
-              <p className="mt-4 text-center text-xs px-3 py-1 rounded-full bg-warning/10 text-warning border border-warning/20 shadow-glow animate-fade-in inline-block">
-                <span className="animate-pulse">Oferta válida enquanto durar o programa. Sem pegadinhas.</span>
-              </p>
+              <div className="text-center">
+                <p className="text-xs px-3 py-1 rounded-full bg-warning/10 text-warning border border-warning/20 shadow-glow animate-fade-in inline-block">
+                  <span className="animate-pulse">Oferta válida enquanto durar o programa. Sem pegadinhas.</span>
+                </p>
+              </div>
             </div>
           </div>
         </div>

@@ -54,11 +54,11 @@ const FooterSection = () => {
               </li>
               <li className="flex items-center gap-2">
                 <CalendarRange className="w-4 h-4 text-primary" />
-                <span className="text-sm">Trimestral: R$ 74,70 (R$ 24,90/mês)</span>
+                <span className="text-sm">Trimestral: R$ 74,70 (R$ 24,90/mês) - Em breve</span>
               </li>
               <li className="flex items-center gap-2">
                 <CalendarCheck className="w-4 h-4 text-primary" />
-                <span className="text-sm">Anual: R$ 238,80 (R$ 19,90/mês)</span>
+                <span className="text-sm">Anual: R$ 238,80 (R$ 19,90/mês) - Em breve</span>
               </li>
               <li className="flex items-center gap-2">
                 <Infinity className="w-4 h-4 text-primary" />

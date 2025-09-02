@@ -62,9 +62,9 @@ const PricingSection = () => {
                   <div className="text-muted-foreground">/mês</div>
                 </div>
                 <div className="space-y-2 mb-8 text-muted-foreground">
-                  <div className="text-sm">Sem fidelidade</div>
-                  <div className="text-sm">Ativação imediata</div>
-                  <div className="text-sm">Pagamento mensal</div>
+                  <div className="text-sm">• Sem fidelidade</div>
+                  <div className="text-sm">• Ativação imediata</div>
+                  <div className="text-sm">• Pagamento mensal</div>
                 </div>
                 <button className="btn-hero w-full mb-4 flex items-center justify-center gap-2" onClick={() => openWhatsApp('Olá! Quero ativar o plano Mensal (R$ 29,90/mês).')}>
                   <BadgeCheck className="w-5 h-5" />
