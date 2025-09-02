@@ -3,7 +3,7 @@ import { CheckCircle, Tv, Film, Smartphone, Monitor, Users, Gem, Headset } from 
 const features = [
   {
     icon: Tv,
-    title: '1.800+ Canais',
+    title: '5.700+ Canais',
     description: 'Canais de esportes, filmes, notícias, infantil e muito mais',
     color: 'from-blue-500 to-cyan-500'
   },

@@ -36,7 +36,7 @@ const ReferralSection = () => {
                 <div className="p-4 rounded-xl bg-card/50 border border-border/30">
                   <div className="flex items-center gap-3">
                     <Crown className="w-5 h-5 text-warning" />
-                    <div className="font-semibold">10 indicações = 1 ano grátis</div>
+                    <div className="font-semibold">10 indicações = 1 ANO GRÁTIS</div>
                   </div>
                 </div>
               </div>
@@ -49,7 +49,8 @@ const ReferralSection = () => {
               <button className="btn-secondary w-full md:w-auto" onClick={openWhatsApp}>
                 Saiba Mais
               </button>
-              <p className="mt-3 inline-flex items-center gap-2 text-xs px-3 py-1 rounded-full bg-warning/10 text-warning border border-warning/20 shadow-glow animate-fade-in">
+              
+              <p className="mt-4 text-center text-xs px-3 py-1 rounded-full bg-warning/10 text-warning border border-warning/20 shadow-glow animate-fade-in inline-block">
                 <span className="animate-pulse">Oferta válida enquanto durar o programa. Sem pegadinhas.</span>
               </p>
             </div>
