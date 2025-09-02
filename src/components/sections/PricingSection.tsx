@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import { Clock, Crown, BadgeCheck, TrendingUp } from 'lucide-react';
+import TrialChoiceDialog from '@/components/TrialChoiceDialog';
 
 const PricingSection = () => {
+  const [trialDialogOpen, setTrialDialogOpen] = useState(false);
   const whatsappNumber = "5521978794705";
   const openWhatsApp = (message: string) => {
     window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
@@ -34,7 +37,7 @@ const PricingSection = () => {
                 <h3 className="text-2xl font-bold text-foreground mb-2">Teste Grátis</h3>
                 <div className="text-4xl font-black text-gradient mb-2">4 Horas</div>
                 <p className="text-muted-foreground mb-6">Teste sem risco: 4 horas grátis para conhecer o serviço</p>
-                <button className="btn-secondary w-full" onClick={() => openWhatsApp('Olá! Gostaria de solicitar o teste grátis de 4 horas do Quantum Play.')}> 
+                <button className="btn-secondary w-full" onClick={() => setTrialDialogOpen(true)}> 
                   Solicitar Teste
                 </button>
               </div>
@@ -144,6 +147,12 @@ const PricingSection = () => {
         </div>
 
       </div>
+      
+      {/* Trial Choice Dialog */}
+      <TrialChoiceDialog 
+        open={trialDialogOpen} 
+        onOpenChange={setTrialDialogOpen} 
+      />
     </section>
   );
 };
