@@ -1,18 +1,17 @@
 import { Gift, Users, Crown } from 'lucide-react';
-
 const ReferralSection = () => {
   const whatsappNumber = "5521978794705";
   const openWhatsApp = () => {
     const message = 'Olá! Quero saber mais sobre o programa Indique e Ganhe do Quantum Play.';
     window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
   };
-
-  return (
-    <section className="pt-16 pb-24 -mt-8 bg-background relative overflow-hidden" aria-labelledby="referral-heading">
+  return <section className="pt-16 pb-24 -mt-8 bg-background relative overflow-hidden" aria-labelledby="referral-heading">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-primary to-accent rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-72 h-72 bg-gradient-to-r from-accent to-primary rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-20 right-10 w-72 h-72 bg-gradient-to-r from-accent to-primary rounded-full blur-3xl animate-pulse" style={{
+        animationDelay: '1s'
+      }} />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -30,13 +29,13 @@ const ReferralSection = () => {
                 <div className="p-4 rounded-xl bg-card/50 border border-border/30">
                   <div className="flex items-center gap-3">
                     <Users className="w-5 h-5 text-primary" />
-                    <div className="font-semibold">2 indicações = 1 mês grátis</div>
+                    <div className="font-semibold">1 indicações = 1 mês grátis</div>
                   </div>
                 </div>
                 <div className="p-4 rounded-xl bg-card/50 border border-border/30">
                   <div className="flex items-center gap-3">
                     <Crown className="w-5 h-5 text-warning" />
-                    <div className="font-semibold">10 indicações = 1 ANO GRÁTIS</div>
+                    <div className="font-semibold">8 indicações = 1 ANO GRÁTIS</div>
                   </div>
                 </div>
               </div>
@@ -46,21 +45,17 @@ const ReferralSection = () => {
                 <span className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">Sem limite</span>
               </div>
 
-              <div className="text-center">
-                <button className="btn-secondary w-full md:w-auto mb-4" onClick={openWhatsApp}>
-                  Saiba Mais
-                </button>
-                
-                <p className="text-xs px-3 py-1 rounded-full bg-warning/10 text-warning border border-warning/20 shadow-glow animate-fade-in inline-block">
-                  <span className="animate-pulse">Oferta válida enquanto durar o programa. Sem pegadinhas.</span>
-                </p>
-              </div>
+              <button className="btn-secondary w-full md:w-auto" onClick={openWhatsApp}>
+                Saiba Mais
+              </button>
+              
+              <p className="mt-4 text-center text-xs px-3 py-1 rounded-full bg-warning/10 text-warning border border-warning/20 shadow-glow animate-fade-in inline-block">
+                <span className="animate-pulse">Oferta válida enquanto durar o programa. Sem pegadinhas.</span>
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ReferralSection;
