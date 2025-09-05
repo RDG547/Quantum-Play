@@ -29,7 +29,15 @@ const TrialChoiceDialog = ({ open, onOpenChange }: TrialChoiceDialogProps) => {
   const redirectToWhatsApp = () => {
     const whatsappNumber = "5521978794705";
     const message = 'Olá! Gostaria de solicitar o teste grátis de 4 horas do Quantum Play.';
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+    
+    // Detect if user is on mobile
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+    
+    const whatsappUrl = isMobile 
+      ? `whatsapp://send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`
+      : `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    
+    window.open(whatsappUrl, '_blank');
     onOpenChange(false);
     setShowServerInfo(false);
     setCountdown(5);
@@ -100,7 +108,7 @@ const TrialChoiceDialog = ({ open, onOpenChange }: TrialChoiceDialogProps) => {
               <div className="bg-muted/50 p-4 rounded-lg border border-border/40">
                 <div className="flex items-center gap-3 mb-3">
                   <Server className="w-5 h-5 text-primary" />
-                  <h3 className="font-semibold text-foreground">Servidor 1 - Mais Filmes</h3>
+                  <h3 className="font-semibold text-foreground">Servidor 1 - Mais Filmes e Séries</h3>
                 </div>
                 <div className="space-y-1 text-sm text-muted-foreground">
                   <p>📺 Canais: 1900+</p>
