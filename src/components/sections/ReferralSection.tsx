@@ -1,9 +1,11 @@
 import { Gift, Users, Crown } from 'lucide-react';
+import { useSettings } from '@/hooks/useSettings';
 const ReferralSection = () => {
-  const whatsappNumber = "5521978794705";
+  const { settings } = useSettings();
+  
   const openWhatsApp = () => {
     const message = 'Olá! Quero saber mais sobre o programa Indique e Ganhe do Quantum Play.';
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/${settings.whatsapp_number}?text=${encodeURIComponent(message)}`, '_blank');
   };
   return <section className="pt-16 pb-24 -mt-8 bg-background relative overflow-hidden" aria-labelledby="referral-heading">
       {/* Background Pattern */}

@@ -1,11 +1,12 @@
 import { Gem, Clock, BadgeCheck, Shield, ShieldCheck, Headset, FileText, Cookie, Calendar, CalendarRange, CalendarCheck, Infinity, Zap, QrCode, ArrowRight } from 'lucide-react';
+import { useSettings } from '@/hooks/useSettings';
 
 const FooterSection = () => {
-  const whatsappNumber = "5521978794705";
+  const { settings } = useSettings();
 
   const handleWhatsAppClick = () => {
     const message = "Olá! Tenho interesse no Quantum Play. Pode me ajudar?";
-    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/${settings.whatsapp_number}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
   };
 
@@ -50,15 +51,15 @@ const FooterSection = () => {
             <ul className="space-y-3 text-muted-foreground">
               <li className="flex items-center gap-2">
                 <Calendar className="w-4 h-4 text-primary" />
-                <span className="text-sm">Mensal: R$ 29,90/mês</span>
+                <span className="text-sm">Mensal: R$ {settings.monthly_price}/mês</span>
               </li>
               <li className="flex items-center gap-2">
                 <CalendarRange className="w-4 h-4 text-primary" />
-                <span className="text-sm">Trimestral: R$ 74,70 (R$ 24,90/mês) - Em breve</span>
+                <span className="text-sm">Trimestral: R$ {settings.quarterly_price} (R$ {(parseFloat(settings.quarterly_price) / 3).toFixed(2)}/mês) - Em breve</span>
               </li>
               <li className="flex items-center gap-2">
                 <CalendarCheck className="w-4 h-4 text-primary" />
-                <span className="text-sm">Anual: R$ 238,80 (R$ 19,90/mês) - Em breve</span>
+                <span className="text-sm">Anual: R$ {settings.annual_price} (R$ {(parseFloat(settings.annual_price) / 12).toFixed(2)}/mês) - Em breve</span>
               </li>
               <li className="flex items-center gap-2">
                 <Infinity className="w-4 h-4 text-primary" />
@@ -78,7 +79,7 @@ const FooterSection = () => {
               </li>
               <li className="flex items-center gap-2">
                 <BadgeCheck className="w-4 h-4 text-primary" />
-                <span className="text-sm">Teste grátis de 4 horas</span>
+                <span className="text-sm">Teste grátis de {settings.trial_hours} horas</span>
               </li>
               <li className="flex items-center gap-2">
                 <ArrowRight className="w-4 h-4 text-primary" />
@@ -142,7 +143,7 @@ const FooterSection = () => {
                 <span className="text-sm font-medium">Online Agora</span>
               </div>
               <div className="text-sm text-muted-foreground">
-                R$ 29,90/mês
+                R$ {settings.monthly_price}/mês
               </div>
             </div>
           </div>

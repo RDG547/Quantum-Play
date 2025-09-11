@@ -2,6 +2,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Bot, MessageCircle, Server, Clock } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useToast } from '@/hooks/use-toast';
+import { useSettings } from '@/hooks/useSettings';
 
 interface TrialChoiceDialogProps {
   open: boolean;
@@ -12,6 +13,7 @@ const TrialChoiceDialog = ({ open, onOpenChange }: TrialChoiceDialogProps) => {
   const { toast } = useToast();
   const [showServerInfo, setShowServerInfo] = useState(false);
   const [countdown, setCountdown] = useState(5);
+  const { settings } = useSettings();
 
   const handleAutomaticTrial = () => {
     toast({
@@ -27,15 +29,14 @@ const TrialChoiceDialog = ({ open, onOpenChange }: TrialChoiceDialogProps) => {
   };
 
   const redirectToWhatsApp = () => {
-    const whatsappNumber = "5521935009521";
-    const message = 'Olá! Gostaria de solicitar o teste grátis de 4 horas do Quantum Play.';
+    const message = `Olá! Gostaria de solicitar o teste grátis de ${settings.trial_hours} horas do Quantum Play.`;
     
     // Detect if user is on mobile
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
     
     const whatsappUrl = isMobile 
-      ? `whatsapp://send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`
-      : `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+      ? `whatsapp://send?phone=${settings.whatsapp_number}&text=${encodeURIComponent(message)}`
+      : `https://wa.me/${settings.whatsapp_number}?text=${encodeURIComponent(message)}`;
     
     window.open(whatsappUrl, '_blank');
     onOpenChange(false);
@@ -63,7 +64,7 @@ const TrialChoiceDialog = ({ open, onOpenChange }: TrialChoiceDialogProps) => {
                 Como deseja solicitar seu teste grátis?
               </DialogTitle>
               <DialogDescription className="text-muted-foreground text-center">
-                Escolha a opção que preferir para ativar suas 4 horas gratuitas
+                Escolha a opção que preferir para ativar suas {settings.trial_hours} horas gratuitas
               </DialogDescription>
             </DialogHeader>
             

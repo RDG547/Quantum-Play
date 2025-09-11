@@ -1,11 +1,12 @@
 import { Clock, CheckCircle } from 'lucide-react';
+import { useSettings } from '@/hooks/useSettings';
 
 const ContactSection = () => {
-  const whatsappNumber = "5521978794705";
+  const { settings } = useSettings();
   const whatsappMessage = "Olá! Gostaria de ativar o Quantum Play. Pode me ajudar?";
 
   const handleWhatsAppClick = () => {
-    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+    const url = `https://wa.me/${settings.whatsapp_number}?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(url, '_blank');
   };
 
@@ -40,7 +41,7 @@ const ContactSection = () => {
                   </svg>
                 </div>
                 <h3 className="text-2xl font-bold text-foreground mb-4">WhatsApp</h3>
-                <p className="text-lg font-semibold text-[#25D366] mb-4">(21) 97879-4705</p>
+                <p className="text-lg font-semibold text-[#25D366] mb-4">+{settings.whatsapp_number}</p>
                 <p className="text-muted-foreground mb-6">
                   Atendimento rápido e personalizado para ativar seu plano
                 </p>
@@ -60,7 +61,7 @@ const ContactSection = () => {
                   <Clock className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-foreground mb-4">Teste Grátis</h3>
-                <p className="text-lg font-semibold text-primary mb-4">4 Horas Completas</p>
+                <p className="text-lg font-semibold text-primary mb-4">{settings.trial_hours} Horas Completas</p>
                 <p className="text-muted-foreground mb-6">
                   Experimente todos os recursos sem compromisso
                 </p>

@@ -2,18 +2,19 @@ import { useState, useEffect } from 'react';
 import { Clock, Tv, Smartphone, Monitor, Gem, Headset, Infinity } from 'lucide-react';
 import heroImage from '@/assets/iptv-hero.jpg';
 import TrialChoiceDialog from '@/components/TrialChoiceDialog';
+import { useSettings } from '@/hooks/useSettings';
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [trialDialogOpen, setTrialDialogOpen] = useState(false);
+  const { settings } = useSettings();
   
   useEffect(() => {
     setIsVisible(true);
   }, []);
   
-  const whatsappNumber = "5521978794705";
   const openWhatsApp = () => {
-    const message = 'Olá! Quero ativar meu plano do Quantum Play por R$ 29,90/mês.';
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+    const message = `Olá! Quero ativar meu plano do Quantum Play por R$ ${settings.monthly_price}/mês.`;
+    window.open(`https://wa.me/${settings.whatsapp_number}?text=${encodeURIComponent(message)}`, '_blank');
   };
   return <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-particles">
       {/* Background Image with Overlay */}
@@ -63,7 +64,7 @@ const HeroSection = () => {
           {/* Price Badge */}
           <div className={`inline-flex items-center bg-gradient-primary px-6 py-3 rounded-full mb-8 animate-scale-in stagger-1`}>
             <span className="text-lg font-bold text-primary-foreground">
-              Apenas R$ 29,90/mês
+              Apenas R$ {settings.monthly_price}/mês
             </span>
           </div>
 
@@ -94,7 +95,7 @@ const HeroSection = () => {
           <div className={`flex flex-col sm:flex-row gap-4 justify-center items-center animate-scale-in stagger-4`}>
             <button className="btn-hero flex items-center gap-3 text-lg" onClick={() => setTrialDialogOpen(true)}>
               <Clock className="w-6 h-6" />
-              Teste Grátis 4 Horas
+              Teste Grátis {settings.trial_hours} Horas
             </button>
             <button className="btn-whatsapp flex items-center gap-3 text-lg" onClick={openWhatsApp}>
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

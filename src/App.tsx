@@ -7,6 +7,7 @@ import NotFound from "./pages/NotFound";
 import Terms from "./pages/Termos";
 import Privacy from "./pages/Privacidade";
 import CookiesPage from "./pages/Cookies";
+import Admin from "./pages/Admin";
 import ScrollToTop from "@/components/ScrollToTop";
 import ParticlesBackground from "@/components/ParticlesBackground";
 
@@ -22,6 +23,7 @@ const App = () => (
         <Route path="/termos" element={<Terms />} />
         <Route path="/privacidade" element={<Privacy />} />
         <Route path="/cookies" element={<CookiesPage />} />
+        <Route path="/admin" element={<Admin />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>
