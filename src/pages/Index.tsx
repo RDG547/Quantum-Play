@@ -15,7 +15,7 @@ const Index = () => {
     setOpen(false);
   };
   const openWhatsApp = () => {
-    const whatsappNumber = "5521978794705";
+    const whatsappNumber = "5521935009521";
     const message = "Olá! Quero economizar com o Quantum Play.";
     window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
     setOpen(false);
