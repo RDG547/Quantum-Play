@@ -27,7 +27,7 @@ const TrialChoiceDialog = ({ open, onOpenChange }: TrialChoiceDialogProps) => {
   };
 
   const redirectToWhatsApp = () => {
-    const whatsappNumber = "5521978794705";
+    const whatsappNumber = "5521935009521";
     const message = 'Olá! Gostaria de solicitar o teste grátis de 4 horas do Quantum Play.';
     
     // Detect if user is on mobile
